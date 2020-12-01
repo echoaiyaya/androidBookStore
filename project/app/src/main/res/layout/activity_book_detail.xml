@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookDetailActivity">
+
+
+    <TextView
+        android:id="@+id/bookDetailTitle"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Complete Canadian Curriculum Gr.4(Rev) Paperback – June 1 2015"
+        android:background="@color/login_bgColorBlue"
+        android:textColor="@color/login_bgText"
+        />
+
+    <ScrollView
+        android:layout_below="@+id/bookDetailTitle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/bookDetailImage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="5dp"
+                app:srcCompat="@drawable/book1" />
+
+            <TextView
+                android:layout_below="@+id/bookDetailImage"
+                android:id="@+id/bookDetailAuthorLabel"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Author: " />
+
+            <TextView
+                android:layout_below="@+id/bookDetailImage"
+                android:layout_toRightOf="@+id/bookDetailAuthorLabel"
+                android:id="@+id/bookDetailAuthor"
+                android:textSize="25sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="heloo" />
+
+            <TextView
+                android:id="@+id/bookDetailPriceLabel"
+                android:layout_below="@+id/bookDetailAuthorLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:text="Price:"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/bookDetailPrice"
+                android:layout_below="@+id/bookDetailAuthorLabel"
+                android:layout_toRightOf="@+id/bookDetailPriceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="CDN$ 24.77"
+                android:textColor="@color/deepRed"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bookDetailQuanlityBtn"
+                android:layout_below="@+id/bookDetailPriceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="20dp"
+                android:text="Qty: 1"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/bookDetailBuyBtn"
+                android:layout_below="@+id/bookDetailQuanlityBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/yellow"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Buy Now"
+                android:textSize="25dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/bookDetailDesc"
+                android:layout_below="@+id/bookDetailBuyBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@color/lightBlue">
+
+                    <TextView
+                        android:id="@+id/bookDetailDescTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Product Infomation"
+                        android:padding="10dp"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/bookDetailDescContent"
+                        android:layout_width="match_parent"
+                        android:padding="10dp"
+                        android:layout_height="wrap_content"
+                        android:text="Essential reading for every fan, Beauties is a collection of the best stories that players tell each other. Grab a seat with TSN’s James Duthie as hockey’s finest relive highs, lows and hilarious moments on and off the ice from superstars, journeymen, coaches, referees, broadcasters, agents, and hockey moms and dads. In Beauties, you’ll find out:
+
+·       How Sidney Crosby’s most unusual nickname came to be
+
+·       How Steve Stamkos’s dad accidentally stole Steve Yzerman’s car
+
+·       How Paul “Biznasty” Bissonette almost had the Arizona Coyotes kicked out of a Winnipeg hotel on game day
+
+·       How Wayne Gretzky’s greatest one-liner may have turned around the          Stanley Cup Final in 1985
+
+·       About the night that Hayley Wickenheiser went blind
+
+·       Why the St. Louis Blues credit Laila Anderson, a brave young girl, for their    Stanley Cup win
+
+·       What Bobby Orr said the first time he saw Connor McDavid play at a rink in Toronto
+
+And more!" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,20 @@
+1.bookshop
+2.community
+3.bookshelf
+4.cart
+5.account
+
+1.bookshop
+page: (1).books list page. (2).book detail page. (3).checkout page.
+
+2.community
+page: (1).home page.(comments/topic list) (2).publish post or comments.
+
+3.bookshelf
+page: (1).books list (2).book menu (3).book content
+
+4.cart
+page: (1).cart page.
+
+5.account
+page: (1).sign in page (2).register page (3).policy page (4).user information page (5).information edit.(address, payment)
