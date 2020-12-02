@@ -7,6 +7,8 @@ public class Book {
     private String Description;
     private Double Price;
 
+    public Book() {
+    }
 
     public Book(String name, int imageId, String author, String description, Double price) {
         this.name = name;

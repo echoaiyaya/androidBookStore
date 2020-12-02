@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 public class CompanyActivity extends AppCompatActivity {
 
-    ImageView mainBtn;
+    ImageView bookShopBtn;
     ImageView userBtn;
 
     @Override
@@ -18,11 +18,11 @@ public class CompanyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company);
 
-        mainBtn = findViewById(R.id.mainBtn);
+        bookShopBtn = findViewById(R.id.bookShopBtn);
         userBtn = findViewById(R.id.accountBtn);
 
 
-        mainBtn.setOnClickListener(new View.OnClickListener() {
+        bookShopBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent bookList = new Intent(CompanyActivity.this, MainActivity.class);
