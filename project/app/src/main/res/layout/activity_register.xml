@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="First Name" />
+                android:hint="First Name" />
 
             <EditText
                 android:id="@+id/registerFN"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Your First Name" />
+                android:hint="Your First Name" />
 
             <TextView
                 android:id="@+id/registerLNLabel"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Your Last Name" />
+                android:hint="Your Last Name" />
 
             <TextView
                 android:id="@+id/registerPhoneLabel"
@@ -88,18 +88,27 @@
                 android:inputType="text" />
 
             <TextView
-                android:id="@+id/registerPassword"
+                android:id="@+id/registerPasswordLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="Set Password" />
 
             <EditText
-                android:id="@+id/textView3"
+                android:id="@+id/registerPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:text="TextView" />
+
+            <Button
+                android:id="@+id/registerBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/login_bgColorBlue"
+                android:textColor="@color/login_bgText"
+                android:textSize="20sp"
+                android:text="Comfirm" />
 
 
         </LinearLayout>

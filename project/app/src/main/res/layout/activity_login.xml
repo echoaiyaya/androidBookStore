@@ -137,7 +137,7 @@
             android:id="@+id/login_textClick"
             android:layout_below="@id/btn_SignIn"
             android:layout_centerHorizontal="true"
-            android:text="Forget Password? Create New Account?"
+            android:text="Create New Account?"
             android:textSize="15sp"
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"

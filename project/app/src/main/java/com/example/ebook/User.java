@@ -9,12 +9,12 @@ public class User extends Application {
     private String phone;
     private String address;
     private String pwd;
-    private boolean isLogin = false;
 
-    @Override
-    public void onCreate(){
-        super.onCreate();
-    }
+//    public boolean isLogin() {
+//        return isLogin;
+//    }
+
+    private boolean isLogin = false;
 
     public String getFirstName() {
         return firstName;

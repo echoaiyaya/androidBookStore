@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
@@ -18,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText phone;
     EditText pwd;
     Button signBtn;
+    TextView registerText;
     User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         phone = findViewById(R.id.login_phoneInput);
         pwd = findViewById(R.id.login_passwordInput);
         signBtn = findViewById(R.id.btn_SignIn);
+        registerText = findViewById(R.id.login_textClick);
         user = (User) getApplication();
         signBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -38,6 +41,14 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     showLoginResult(false);
                 }
+            }
+        });
+
+        registerText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
 
