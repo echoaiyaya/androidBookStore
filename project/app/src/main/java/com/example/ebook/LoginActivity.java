@@ -1,5 +1,6 @@
 package com.example.ebook;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -35,12 +44,50 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                if (user.CheckPwd(phone.getText().toString(), pwd.getText().toString())) {
-                    user.login();
-                    showLoginResult(true);
-                } else {
-                    showLoginResult(false);
-                }
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                DocumentReference docRef = db.collection("users").document("27332733");
+                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if(document.exists()) {
+                                Map<String, Object> userData = document.getData();
+                                String phoneCheck = userData.get("phone").toString();
+                                String pwdCheck = userData.get("pwd").toString();
+                                String addressCheck = userData.get("address").toString();
+                                String firtnameCheck = userData.get("firstName").toString();
+                                String lastnameCheck = userData.get("lastName").toString();
+//                                Log.d("test", phoneCheck);
+//                                Log.d("test", pwdCheck);
+//                                Log.d("test", phone.getText().toString());
+//                                Log.d("test", pwd.getText().toString());
+                                if (phone.getText().toString().equals(phoneCheck) && pwd.getText().toString().equals(pwdCheck)) {
+                                    user.login();
+                                    user.setAddress(addressCheck);
+                                    user.setFirstName(firtnameCheck);
+                                    user.setLastName(lastnameCheck);
+                                    user.setPhone(phoneCheck);
+                                    showLoginResult(true);
+                                } else {
+                                    showLoginResult(false);
+                                }
+                            } else {
+                                Log.d("test", "No such document");
+                                showLoginResult(false);
+                            }
+                        } else {
+                            Log.d("test", "get failed with ", task.getException());
+                            showLoginResult(false);
+                        }
+                    }
+                });
+//                if (user.CheckPwd(phone.getText().toString(), pwd.getText().toString())) {
+//                    user.login();
+//                    showLoginResult(true);
+//                } else {
+//                    showLoginResult(false);
+//                }
             }
         });
 

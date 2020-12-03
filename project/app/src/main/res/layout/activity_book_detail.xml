@@ -38,8 +38,28 @@
 
             <TextView
                 android:layout_below="@+id/bookDetailImage"
-                android:id="@+id/bookDetailAuthorLabel"
+                android:id="@+id/bookDetailTypeLabel"
                 android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Book Type: " />
+
+            <TextView
+                android:layout_below="@+id/bookDetailImage"
+                android:layout_toRightOf="@+id/bookDetailTypeLabel"
+                android:id="@+id/bookDetailType"
+                android:textSize="25sp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="eBook" />
+
+            <TextView
+                android:layout_below="@+id/bookDetailTypeLabel"
+                android:id="@+id/bookDetailAuthorLabel"
+
                 android:layout_marginLeft="20dp"
                 android:textSize="25sp"
                 android:layout_width="wrap_content"
@@ -47,11 +67,11 @@
                 android:text="Author: " />
 
             <TextView
-                android:layout_below="@+id/bookDetailImage"
+                android:layout_below="@+id/bookDetailTypeLabel"
                 android:layout_toRightOf="@+id/bookDetailAuthorLabel"
                 android:id="@+id/bookDetailAuthor"
                 android:textSize="25sp"
-                android:layout_marginTop="10dp"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="heloo" />
@@ -89,8 +109,22 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/bookDetailBuyBtn"
+                android:id="@+id/bookDetailCartBtn"
                 android:layout_below="@+id/bookDetailQuanlityBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/yellow"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="Add to Cart"
+                android:textSize="25dp" />
+
+            <Button
+                android:id="@+id/bookDetailBuyBtn"
+                android:layout_below="@+id/bookDetailCartBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"

@@ -36,6 +36,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         TextView bookName;
         TextView bookAuthor;
         TextView bookPrice;
+        TextView bookType;
         Button buyBtn;
 
         public ViewHolder(View view) {
@@ -45,6 +46,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
             bookName = (TextView) view.findViewById(R.id.bookTitle1);
             bookAuthor = (TextView) view.findViewById(R.id.bookAuthor1);
             bookPrice = (TextView) view.findViewById(R.id.bookPrice1);
+            bookType = (TextView) view.findViewById(R.id.bookType1);
         }
     }
 
@@ -76,7 +78,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         holder.bookImage.setImageResource(book.getImageId());
         holder.bookName.setText(book.getName());
         holder.bookAuthor.setText(book.getAuthor());
-        holder.bookPrice.setText(book.getPrice().toString());
+        holder.bookPrice.setText("CAD$" + book.getPrice().toString());
+        holder.bookType.setText("TYPE:" + book.getType().toString());
     }
 
     @Override

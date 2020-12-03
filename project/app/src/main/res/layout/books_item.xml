@@ -30,11 +30,22 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="15sp"
                 android:text="Complete Canadian Curriculum Gr.4(Rev) Paperback – June 1 2015"/>
+
             <TextView
-                android:id="@+id/bookAuthor1"
+                android:id="@+id/bookType1"
                 android:layout_below="@+id/bookTitle1"
                 android:layout_toRightOf="@+id/bookImage1"
                 android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+
+                android:text="TYPE: eBook"/>
+            <TextView
+                android:id="@+id/bookAuthor1"
+                android:layout_below="@+id/bookType1"
+                android:layout_toRightOf="@+id/bookImage1"
                 android:layout_marginLeft="5dp"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
@@ -46,7 +57,7 @@
                 android:id="@+id/bookPrice1"
                 android:layout_below="@+id/bookAuthor1"
                 android:layout_toRightOf="@+id/bookImage1"
-                android:layout_marginTop="5dp"
+
                 android:layout_marginLeft="5dp"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
@@ -55,22 +66,22 @@
                 android:textColor="@color/deepRed"
                 android:text="CDN$ 16.79"/>
 
-            <Button
-                android:id="@+id/btnBuy"
-                android:layout_below="@+id/bookPrice1"
-                android:layout_toRightOf="@+id/bookImage1"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:textSize="20sp"
-                android:paddingRight="5dp"
-                android:paddingLeft="5dp"
-                android:background="@color/login_bgColorBlue"
-                android:textColor="@color/login_bgColorWhite"
-                android:text="More Detail"/>
+<!--            <Button-->
+<!--                android:id="@+id/btnBuy"-->
+<!--                android:layout_below="@+id/bookPrice1"-->
+<!--                android:layout_toRightOf="@+id/bookImage1"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginLeft="5dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:gravity="center"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:textSize="20sp"-->
+<!--                android:paddingRight="5dp"-->
+<!--                android:paddingLeft="5dp"-->
+<!--                android:background="@color/login_bgColorBlue"-->
+<!--                android:textColor="@color/login_bgColorWhite"-->
+<!--                android:text="More Detail"/>-->
 
 <!--            <Button-->
 <!--                android:id="@+id/btnAddCart"-->

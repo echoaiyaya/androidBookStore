@@ -13,6 +13,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import org.w3c.dom.Text;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class BookDetailActivity extends AppCompatActivity {
 
@@ -22,20 +31,34 @@ public class BookDetailActivity extends AppCompatActivity {
     TextView bookDesc;
     TextView bookPrice;
     TextView bookAuthor;
+    TextView bookType;
     ImageView bookImage;
     Button qualityBtn;
     Button buyBtn;
+    Button cartBtn;
+
+    private String name;
+    private int image;
+    private String author;
+    private String desc;
+    private double price;
+    private String type;
+    private String bookId;
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
 
         Intent intent = getIntent();
-        final String name = intent.getStringExtra("name");
-        final int image = intent.getIntExtra("bookImage", 0);
-        final String author = intent.getStringExtra("author");
-        final String desc = intent.getStringExtra("desc");
-        final double price = intent.getDoubleExtra("price", 0);
+        name = intent.getStringExtra("name");
+        image = intent.getIntExtra("bookImage", 0);
+        author = intent.getStringExtra("author");
+        desc = intent.getStringExtra("desc");
+        price = intent.getDoubleExtra("price", 0);
+        type = intent.getStringExtra("type");
+        bookId = intent.getStringExtra("bookId");
 
         bookTitle = findViewById(R.id.bookDetailTitle);
         bookAuthor = findViewById(R.id.bookDetailAuthor);
@@ -43,11 +66,14 @@ public class BookDetailActivity extends AppCompatActivity {
         bookPrice = findViewById(R.id.bookDetailPrice);
         bookDesc = findViewById(R.id.bookDetailDescContent);
         qualityBtn = findViewById(R.id.bookDetailQuanlityBtn);
+        bookType = findViewById(R.id.bookDetailType);
         buyBtn = findViewById(R.id.bookDetailBuyBtn);
+        cartBtn = findViewById(R.id.bookDetailCartBtn);
 
         bookTitle.setText(name);
         bookAuthor.setText(author);
         bookImage.setImageResource(image);
+        bookType.setText(type);
         bookPrice.setText(String.valueOf(price));
         bookDesc.setText(desc);
 
@@ -69,6 +95,24 @@ public class BookDetailActivity extends AppCompatActivity {
                 paymentPage.putExtra("price", price);
                 paymentPage.putExtra("quanlity", quanlity);
                 startActivity(paymentPage);
+            }
+        });
+
+        cartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User user;
+                user = (User) getApplication();
+                if(user.checkLogin()) {
+                    Map<String, Object> bookCart = new HashMap<>();
+                    Map<String, Object> bookSave = new HashMap<>();
+                    bookSave.put("bookId", bookId);
+                    bookSave.put("bookQty", quanlity);
+                    bookCart.put(bookId, bookSave);
+                    db.collection("carts").document(user.getPhone()).set(bookCart, SetOptions.merge());
+                } else {
+                    Toast.makeText(BookDetailActivity.this, "Please Login first!", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

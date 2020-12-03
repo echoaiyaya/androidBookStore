@@ -81,6 +81,8 @@ public class BookShop extends AppCompatActivity {
                 intent.putExtra("author", mbook.getAuthor());
                 intent.putExtra("desc", mbook.getDescription());
                 intent.putExtra("price", mbook.getPrice());
+                intent.putExtra("type", mbook.getType());
+                intent.putExtra("bookId", mbook.getBookId());
                 startActivity(intent);
             }
         });

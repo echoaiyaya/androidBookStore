@@ -3,6 +3,16 @@ package com.example.ebook;
 import android.app.Application;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Map;
+
 public class User extends Application {
     private String firstName;
     private String lastName;
@@ -66,15 +76,33 @@ public class User extends Application {
         this.pwd = pwd;
     }
 
-    public boolean CheckPwd(String phone, String pwd) {
-        Log.i("test", phone);
-        Log.i("test", pwd);
-
-        if (this.phone.equals(phone)&& this.pwd.equals(pwd)) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean CheckPwd(final String phone, final String pwd) {
+//        Log.i("test", phone);
+//        Log.i("test", pwd);
+        boolean result;
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        DocumentReference docRef = db.collection("users").document("27332733");
+//                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                        if(task.isSuccessful()) {
+//                            DocumentSnapshot document = task.getResult();
+//                            if(document.exists()) {
+//                                Map<String, Object> user = document.getData();
+//                                String phoneCheck = user.get("phone").toString();
+//                                String pwdCheck = user.get("pwd").toString();
+//                                if (phone == phoneCheck && pwd == pwdCheck) {
+//                                    result = true;
+//                                }
+//                            } else {
+//                                Log.d("test", "No such document");
+//                            }
+//                        } else {
+//                            Log.d("test", "get failed with ", task.getException());
+//                        }
+//                    }
+//                });
+        return false;
     }
 
     public void login() {
