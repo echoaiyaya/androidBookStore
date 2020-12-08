@@ -58,10 +58,10 @@ public class LoginActivity extends AppCompatActivity {
                                 String addressCheck = userData.get("address").toString();
                                 String firtnameCheck = userData.get("firstName").toString();
                                 String lastnameCheck = userData.get("lastName").toString();
-                                Log.d("test", phoneCheck);
-                                Log.d("test", pwdCheck);
-                                Log.d("test", phone.getText().toString());
-                                Log.d("test", pwd.getText().toString());
+//                                Log.d("test", phoneCheck);
+//                                Log.d("test", pwdCheck);
+//                                Log.d("test", phone.getText().toString());
+//                                Log.d("test", pwd.getText().toString());
                                 if (phone.getText().toString().equals(phoneCheck) && pwd.getText().toString().equals(pwdCheck)) {
                                     user.login();
                                     user.setAddress(addressCheck);
