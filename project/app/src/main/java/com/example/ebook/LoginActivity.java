@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                DocumentReference docRef = db.collection("users").document("27332733");
+                DocumentReference docRef = db.collection("users").document(phone.getText().toString());
                 docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -58,10 +58,10 @@ public class LoginActivity extends AppCompatActivity {
                                 String addressCheck = userData.get("address").toString();
                                 String firtnameCheck = userData.get("firstName").toString();
                                 String lastnameCheck = userData.get("lastName").toString();
-//                                Log.d("test", phoneCheck);
-//                                Log.d("test", pwdCheck);
-//                                Log.d("test", phone.getText().toString());
-//                                Log.d("test", pwd.getText().toString());
+                                Log.d("test", phoneCheck);
+                                Log.d("test", pwdCheck);
+                                Log.d("test", phone.getText().toString());
+                                Log.d("test", pwd.getText().toString());
                                 if (phone.getText().toString().equals(phoneCheck) && pwd.getText().toString().equals(pwdCheck)) {
                                     user.login();
                                     user.setAddress(addressCheck);
