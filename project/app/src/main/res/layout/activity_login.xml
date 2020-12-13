@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_sentence"
         android:layout_centerHorizontal="true"
-        android:text="@string/company_name"
+        android:text="That Gleams Your Notion"
         android:textColor="@color/login_bgText"
         android:textSize="25sp" />
 
