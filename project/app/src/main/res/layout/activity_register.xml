@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/titleBar"
+        android:id="@+id/cartTitle"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:textSize="30sp"
@@ -19,7 +19,7 @@
         />
 
     <ScrollView
-        android:layout_below="@id/titleBar"
+        android:layout_below="@id/cartTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

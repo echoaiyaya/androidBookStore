@@ -42,7 +42,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/titleBar"
+        android:id="@+id/cartTitle"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:textSize="30sp"
@@ -55,7 +55,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/aboutUsCard"
         android:layout_margin="10dp"
-        android:layout_below="@id/titleBar"
+        android:layout_below="@id/cartTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp">

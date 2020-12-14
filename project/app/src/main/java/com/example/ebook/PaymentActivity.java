@@ -2,21 +2,16 @@ package com.example.ebook;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,7 +60,7 @@ public class PaymentActivity extends AppCompatActivity {
         cn = findViewById(R.id.paymentCardNum);
         cd = findViewById(R.id.paymentCardDate);
         cv = findViewById(R.id.paymentCardCVV);
-        cAddress = findViewById(R.id.addressContent);
+        cAddress = findViewById(R.id.cart_addressContent);
 
         creditBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,10 +81,10 @@ public class PaymentActivity extends AppCompatActivity {
             }
         });
 
-        cTitle = findViewById(R.id.checkoutCard_name);
-        cImage = findViewById(R.id.checkoutCard_image);
-        cPrice = findViewById(R.id.checkoutCard_price);
-        cQuanlity = findViewById(R.id.quanlityBtn);
+        cTitle = findViewById(R.id.cart_reviewCard_name);
+        cImage = findViewById(R.id.cart_reviewCard_image);
+        cPrice = findViewById(R.id.cart_reviewCard_price);
+        cQuanlity = findViewById(R.id.quantityBtn);
 
 
         Intent intent = getIntent();
@@ -113,9 +108,9 @@ public class PaymentActivity extends AppCompatActivity {
             cAddress.setText(userName + " , " + address);
         }
 
-        itemPriceView = findViewById(R.id.itemPrice);
-        taxPriceView = findViewById(R.id.taxPrice);
-        totalPriceView = findViewById(R.id.totalPrice);
+        itemPriceView = findViewById(R.id.cart_itemPrice);
+        taxPriceView = findViewById(R.id.cart_taxPrice);
+        totalPriceView = findViewById(R.id.cart_totalPrice);
 
         setPrice(price, quanlity, shipPrice);
 
@@ -126,7 +121,7 @@ public class PaymentActivity extends AppCompatActivity {
                 showInputDialog();
             }
         });
-        buyBtn = findViewById(R.id.checkoutBtn);
+        buyBtn = findViewById(R.id.cartoutBtn);
         buyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

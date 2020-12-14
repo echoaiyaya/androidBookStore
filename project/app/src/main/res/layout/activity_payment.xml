@@ -9,7 +9,7 @@
     tools:context=".PaymentActivity">
 
     <TextView
-        android:id="@+id/titleBar"
+        android:id="@+id/cartTitle"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:textSize="30sp"
@@ -20,13 +20,13 @@
         />
 
     <Button
-        android:id="@+id/checkoutBtn"
+        android:id="@+id/cartoutBtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_below="@+id/titleBar"
+        android:layout_below="@+id/cartTitle"
         android:background="@color/yellow"
         android:text="Place your order"
         android:textSize="20sp"/>
@@ -38,7 +38,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_below="@+id/checkoutBtn"
+        android:layout_below="@+id/cartoutBtn"
         android:background="@color/yellow"
         android:text="Add your payment way"
         android:textSize="20sp"/>
@@ -107,7 +107,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/orderAddressDate"
+        android:id="@+id/cart_orderAddressDate"
         android:layout_below="@+id/creditCardCard"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="15dp"
@@ -124,26 +124,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/addressLabel"
+                android:id="@+id/cart_addressLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Shipping to:"/>
             <TextView
-                android:id="@+id/addressContent"
+                android:id="@+id/cart_addressContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:layout_toRightOf="@+id/addressLabel"
+                android:layout_toRightOf="@+id/cart_addressLabel"
                 android:text=""/>
             <TextView
-                android:id="@+id/dateLabel"
+                android:id="@+id/cart_dateLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/addressLabel"
+                android:layout_below="@+id/cart_addressLabel"
                 android:text="Estimated delivery:"/>
             <TextView
-                android:id="@+id/deliveryDate"
-                android:layout_below="@+id/dateLabel"
+                android:id="@+id/cart_deliveryDate"
+                android:layout_below="@+id/cart_dateLabel"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimaryDark"
@@ -155,8 +155,8 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/amountDetail"
-        android:layout_below="@+id/orderAddressDate"
+        android:id="@+id/cart_amountDetail"
+        android:layout_below="@+id/cart_orderAddressDate"
         android:layout_marginTop="1dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -172,66 +172,66 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/itemPriceLabel"
+                android:id="@+id/cart_itemPriceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Items:" />
 
             <TextView
-                android:id="@+id/itemPrice"
+                android:id="@+id/cart_itemPrice"
                 android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="" />
 
             <TextView
-                android:id="@+id/shippingPriceLabel"
-                android:layout_below="@+id/itemPriceLabel"
+                android:id="@+id/cart_shippingPriceLabel"
+                android:layout_below="@+id/cart_itemPriceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Shipping:" />
 
             <TextView
-                android:id="@+id/shippingPrice"
-                android:layout_below="@+id/itemPrice"
+                android:id="@+id/cart_shippingPrice"
+                android:layout_below="@+id/cart_itemPrice"
                 android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CDN$ 6.00" />
 
             <TextView
-                android:id="@+id/taxLabel"
-                android:layout_below="@+id/shippingPriceLabel"
+                android:id="@+id/cart_taxLabel"
+                android:layout_below="@+id/cart_shippingPriceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Total Tax:" />
 
             <TextView
-                android:id="@+id/taxPrice"
-                android:layout_below="@+id/shippingPrice"
+                android:id="@+id/cart_taxPrice"
+                android:layout_below="@+id/cart_shippingPrice"
                 android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="" />
 
             <TextView
-                android:id="@+id/totalPriceLabel"
+                android:id="@+id/cart_totalPriceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:textColor="@color/black"
-                android:layout_below="@+id/taxLabel"
+                android:layout_below="@+id/cart_taxLabel"
                 android:text="Order Total:" />
 
             <TextView
-                android:id="@+id/totalPrice"
+                android:id="@+id/cart_totalPrice"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="5dp"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:layout_below="@+id/taxPrice"
+                android:layout_below="@+id/cart_taxPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/deepRed"
@@ -240,8 +240,8 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/checkoutCard"
-        android:layout_below="@+id/amountDetail"
+        android:id="@+id/cart_reviewCard"
+        android:layout_below="@+id/cart_amountDetail"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -257,7 +257,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/checkoutCard_image"
+                android:id="@+id/cart_reviewCard_image"
                 android:scaleType="fitXY"
                 android:layout_marginRight="10dp"
                 android:layout_alignParentTop="true"
@@ -267,8 +267,8 @@
                 app:srcCompat="@drawable/book1" />
 
             <TextView
-                android:id="@+id/checkoutCard_name"
-                android:layout_toRightOf="@+id/checkoutCard_image"
+                android:id="@+id/cart_reviewCard_name"
+                android:layout_toRightOf="@+id/cart_reviewCard_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -276,9 +276,9 @@
                 android:text="Complete Canadian Curriculum Gr.4(Rev) Paperback – June 1 2015" />
 
             <TextView
-                android:id="@+id/checkoutCard_price"
-                android:layout_below="@+id/checkoutCard_name"
-                android:layout_toRightOf="@+id/checkoutCard_image"
+                android:id="@+id/cart_reviewCard_price"
+                android:layout_below="@+id/cart_reviewCard_name"
+                android:layout_toRightOf="@+id/cart_reviewCard_image"
                 android:textSize="25sp"
                 android:textColor="@color/deepRed"
                 android:layout_width="wrap_content"
@@ -286,9 +286,9 @@
                 android:text="CDN$ 18.73" />
 
             <Button
-                android:id="@+id/quanlityBtn"
-                android:layout_below="@id/checkoutCard_price"
-                android:layout_toRightOf="@id/checkoutCard_image"
+                android:id="@+id/quantityBtn"
+                android:layout_below="@id/cart_reviewCard_price"
+                android:layout_toRightOf="@id/cart_reviewCard_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Quality: 1" />
