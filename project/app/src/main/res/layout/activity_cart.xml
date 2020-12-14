@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/cart_reviewCard_price"
                     android:layout_toRightOf="@id/cart_reviewCard_image"
-                    android:text="Quality: 1" />
+                    android:text="Quantity: 1" />
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>

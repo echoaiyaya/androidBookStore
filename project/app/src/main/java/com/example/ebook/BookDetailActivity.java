@@ -113,6 +113,10 @@ public class BookDetailActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(BookDetailActivity.this, "Please Login first!", Toast.LENGTH_LONG).show();
                 }
+
+                Intent bookShopPage = new Intent(BookDetailActivity.this, Cart.class);
+                startActivity(bookShopPage);
+
             }
         });
 
@@ -134,4 +138,5 @@ public class BookDetailActivity extends AppCompatActivity {
                     }
                 }).show();
     }
+
 }
