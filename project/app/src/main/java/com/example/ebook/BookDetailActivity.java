@@ -44,6 +44,7 @@ public class BookDetailActivity extends AppCompatActivity {
     private double price;
     private String type;
     private String bookId;
+    private String webApi;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
@@ -59,6 +60,7 @@ public class BookDetailActivity extends AppCompatActivity {
         price = intent.getDoubleExtra("price", 0);
         type = intent.getStringExtra("type");
         bookId = intent.getStringExtra("bookId");
+        webApi = intent.getStringExtra("webApi");
 
         bookTitle = findViewById(R.id.bookDetailTitle);
         bookAuthor = findViewById(R.id.bookDetailAuthor);
@@ -94,6 +96,10 @@ public class BookDetailActivity extends AppCompatActivity {
                 paymentPage.putExtra("author", author);
                 paymentPage.putExtra("price", price);
                 paymentPage.putExtra("quanlity", quanlity);
+                paymentPage.putExtra("bookId", bookId);
+                paymentPage.putExtra("bookType", type);
+                paymentPage.putExtra("desc", desc);
+                paymentPage.putExtra("webApi", webApi);
                 startActivity(paymentPage);
             }
         });

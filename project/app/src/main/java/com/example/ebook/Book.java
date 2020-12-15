@@ -1,18 +1,51 @@
 package com.example.ebook;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Book {
+
+    @ColumnInfo(name = "name")
     private String name;
+    @ColumnInfo(name = "imageId")
     private int imageId;
+    @ColumnInfo(name = "author")
     private String author;
+    @ColumnInfo(name = "Description")
     private String Description;
+    @ColumnInfo(name = "webApi")
+    private String webApi;
+
+    public String getWebApi() {
+        return webApi;
+    }
+
+    public void setWebApi(String webApi) {
+        this.webApi = webApi;
+    }
+
     private Double Price;
     private String type;
+    @NonNull
+    @PrimaryKey
     private String bookId;
 
     public Book() {
     }
 
-    public Book(String name, int imageId, String author, String description, Double price, String type, String bookId) {
+    public Book(String name, int imageId, String author, String description,String bookId, String webApi) {
+        this.name = name;
+        this.imageId = imageId;
+        this.author = author;
+        Description = description;
+        this.bookId = bookId;
+        this.webApi = webApi;
+    }
+
+    public Book(String name, int imageId, String author, String description, Double price, String type, String bookId, String webApi) {
         this.name = name;
         this.imageId = imageId;
         this.author = author;
@@ -20,6 +53,7 @@ public class Book {
         Price = price;
         this.type = type;
         this.bookId = bookId;
+        this.webApi = webApi;
     }
 
     public String getType() {
@@ -77,4 +111,5 @@ public class Book {
     public void setPrice(Double price) {
         Price = price;
     }
+
 }

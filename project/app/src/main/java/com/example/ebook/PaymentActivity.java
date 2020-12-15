@@ -2,12 +2,14 @@ package com.example.ebook;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +18,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class PaymentActivity extends AppCompatActivity {
 
     Double price;
@@ -23,7 +31,14 @@ public class PaymentActivity extends AppCompatActivity {
     Double taxPrice;
     Double beforeTax;
     Double totalPrice;
+    String bookType;
+    String bookId;
+    String author;
+    String desc;
+    String name;
+    int imageId;
     int quanlity = 1;
+    String webApi;
 
     Button creditBtn;
     Button buyBtn;
@@ -41,8 +56,10 @@ public class PaymentActivity extends AppCompatActivity {
 
 
 
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     RelativeLayout creditLinear;
+    User user;
+
 
 //    public void getCredit(String num, String date, String cvv) {
 //        this.cardNum = num;
@@ -54,6 +71,8 @@ public class PaymentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        user = (User) getApplication();
 
         creditBtn = findViewById(R.id.CreditCardBtn);
 
@@ -88,11 +107,15 @@ public class PaymentActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
-        int imageId = intent.getIntExtra("image", 0);
+        name = intent.getStringExtra("name");
+        imageId = intent.getIntExtra("image", 0);
         price = intent.getDoubleExtra("price", 0);
-        String author = intent.getStringExtra("author");
+        author = intent.getStringExtra("author");
         quanlity = intent.getIntExtra("quanlity", 0);
+        bookId = intent.getStringExtra("bookId");
+        bookType = intent.getStringExtra("bookType");
+        desc = intent.getStringExtra("desc");
+        webApi = intent.getStringExtra("webApi");
 
         cTitle.setText(name);
         cImage.setImageResource(imageId);
@@ -164,10 +187,25 @@ public class PaymentActivity extends AppCompatActivity {
             return;
         }
         if (TextUtils.isEmpty(cAddress.getText())) {
+
             Toast.makeText(PaymentActivity.this, "Please log in!", Toast.LENGTH_SHORT).show();
+
+
             return;
         }
-        Toast.makeText(PaymentActivity.this,"Your order is completed!", Toast.LENGTH_SHORT).show();
-
+        Log.d("test", bookType);
+        if (bookType.equals("eBook")) {
+//            Map<String, Object> bookSave = new HashMap<>();
+//            bookSave.put(bookId, bookId);
+//            db.collection("bookShelf").document(user.getPhone()).set(bookSave, SetOptions.merge());
+            Book saveBook = new Book(name, imageId, author, desc, bookId, webApi);
+            Log.d("tset", saveBook.toString());
+            AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                    AppDatabase.class, "database-name").allowMainThreadQueries().build();
+            db.bookDao().insertAll(saveBook);
+            Toast.makeText(PaymentActivity.this, "Your order is completed!Your book is in your bookshelf!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(PaymentActivity.this, "Your order is completed!", Toast.LENGTH_SHORT).show();
+        }
     }
 }

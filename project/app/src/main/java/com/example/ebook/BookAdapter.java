@@ -19,6 +19,8 @@ import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     private List<Book> mBookList;
+    private int a;
+
 
     // a listener for return the click event of each item;
     private OnItemClickListener mOnItemClickListener;
@@ -50,14 +52,21 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         }
     }
 
-    public BookAdapter(List<Book> bookList) {
+    public BookAdapter(List<Book> bookList, int a) {
         mBookList = bookList;
+        this.a = a;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.books_item, parent, false);
+        if (a == 1) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bookshelf_item, parent, false);
+        }
+
+
+
         final ViewHolder holder = new ViewHolder(view);
         holder.bookView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,8 +87,11 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         holder.bookImage.setImageResource(book.getImageId());
         holder.bookName.setText(book.getName());
         holder.bookAuthor.setText(book.getAuthor());
-        holder.bookPrice.setText("CAD$" + book.getPrice().toString());
-        holder.bookType.setText("TYPE:" + book.getType().toString());
+        if (this.a == 0) {
+            holder.bookPrice.setText("CAD$" + book.getPrice().toString());
+            holder.bookType.setText("TYPE:" + book.getType().toString());
+        }
+
     }
 
     @Override

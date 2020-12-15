@@ -69,7 +69,7 @@ public class BookShop extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.bookList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        BookAdapter adapter = new BookAdapter(bookList);
+        BookAdapter adapter = new BookAdapter(bookList, 0);
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(new BookAdapter.OnItemClickListener(){
             @Override
@@ -83,6 +83,7 @@ public class BookShop extends AppCompatActivity {
                 intent.putExtra("price", mbook.getPrice());
                 intent.putExtra("type", mbook.getType());
                 intent.putExtra("bookId", mbook.getBookId());
+                intent.putExtra("webApi", mbook.getWebApi());
                 startActivity(intent);
             }
         });

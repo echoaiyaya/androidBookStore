@@ -68,6 +68,20 @@
             android:layout_weight="1"
             app:srcCompat="@drawable/account_click" />
     </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/categoryMenu"
+        android:layout_below="@+id/cartTitle"
+        >
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bookList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </ScrollView>
 
 </RelativeLayout>

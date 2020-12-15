@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="30dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/bookImage1"
+                android:layout_width="100dp"
+                android:layout_height="155dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/book1" />
+            <TextView
+                android:id="@+id/bookTitle1"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/bookImage1"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                android:text="Complete Canadian Curriculum Gr.4(Rev) Paperback – June 1 2015"/>
+
+
+            <TextView
+                android:id="@+id/bookAuthor1"
+                android:layout_below="@+id/bookTitle1"
+                android:layout_toRightOf="@+id/bookImage1"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+
+                android:text="Popular Book Company (Canada) Ltd."/>
+
+
+            <TextView
+                android:id="@+id/readBtn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_below="@+id/bookAuthor1"
+                android:layout_toRightOf="@+id/bookImage1"
+
+                android:text="Start Reading..."
+                android:textSize="20sp"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
