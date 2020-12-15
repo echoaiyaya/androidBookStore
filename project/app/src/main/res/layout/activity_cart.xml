@@ -1,241 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cartContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Cart"
-    tools:layout_editor_absoluteY="25dp">
+    android:orientation="vertical"
+    tools:context=".Cart">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/cartTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/lightBlue"
+        android:layout_height="70dp"
+        android:background="@color/login_bgColorBlue"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Shopping Cart"
+        android:textColor="@color/login_bgText"
+        android:textSize="30sp" />
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context=".PaymentActivity">
-
-        <TextView
-            android:id="@+id/cartTitle"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@color/login_bgColorBlue"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="Shopping Cart"
-            android:textColor="@color/login_bgText"
-            android:textSize="30sp" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cart_reviewCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/cartTitle"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="15dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp">
-
-                <ImageView
-                    android:id="@+id/cart_reviewCard_image"
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginRight="10dp"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/book1" />
-
-                <TextView
-                    android:id="@+id/cart_reviewCard_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/cart_reviewCard_image"
-                    android:text="Complete Canadian Curriculum Gr.4(Rev) Paperback – June 1 2015"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/cart_reviewCard_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/cart_reviewCard_name"
-                    android:layout_toRightOf="@+id/cart_reviewCard_image"
-                    android:text="CDN$ 18.73"
-                    android:textColor="@color/deepRed"
-                    android:textSize="25sp" />
-
-                <Button
-                    android:id="@+id/quantityBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/cart_reviewCard_price"
-                    android:layout_toRightOf="@id/cart_reviewCard_image"
-                    android:text="Quantity: 1" />
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cart_orderAddressDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/cart_reviewCard"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="15dp">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bookList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp">
-
-                <TextView
-                    android:id="@+id/cart_addressLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Shipping to:" />
-
-                <TextView
-                    android:id="@+id/cart_addressContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/cart_addressLabel"
-                    android:text=""
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/cart_dateLabel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/cart_addressLabel"
-                    android:text="Estimated delivery:" />
-
-                <TextView
-                    android:id="@+id/cart_deliveryDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/cart_dateLabel"
-                    android:text="Nov.17 2020 - Nov.25 2020"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cart_amountDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/cart_orderAddressDate"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginRight="15dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp">
-
-                <TextView
-                    android:id="@+id/cart_itemPriceLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Items:" />
-
-                <TextView
-                    android:id="@+id/cart_itemPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/cart_shippingPriceLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/cart_itemPriceLabel"
-                    android:text="Shipping:" />
-
-                <TextView
-                    android:id="@+id/cart_shippingPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/cart_itemPrice"
-                    android:layout_alignParentRight="true"
-                    android:text="CDN$ 6.00" />
-
-                <TextView
-                    android:id="@+id/cart_taxLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/cart_shippingPriceLabel"
-                    android:text="Total Tax:" />
-
-                <TextView
-                    android:id="@+id/cart_taxPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/cart_shippingPrice"
-                    android:layout_alignParentRight="true"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/cart_totalPriceLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/cart_taxLabel"
-                    android:layout_marginTop="5dp"
-                    android:text="Order Total:"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/cart_totalPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/cart_taxPrice"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="5dp"
-                    android:text=""
-                    android:textColor="@color/deepRed"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <Button
-            android:id="@+id/cartoutBtn"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_below="@+id/cart_amountDetail"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="158dp"
-            android:background="@color/yellow"
-            android:text="Place your order"
-            android:textSize="20sp" />
 
 
-    </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <Button
+        android:id="@+id/cartoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="158dp"
+        android:background="@color/yellow"
+        android:text="Place your order"
+        android:textSize="20sp" />
+</LinearLayout>

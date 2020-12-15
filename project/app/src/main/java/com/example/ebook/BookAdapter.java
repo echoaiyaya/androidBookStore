@@ -2,6 +2,7 @@ package com.example.ebook;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,9 +61,14 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.books_item, parent, false);
+        View view;
+
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.books_item, parent, false);
         if (a == 1) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bookshelf_item, parent, false);
+        }
+        if (a == 3) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_item, parent, false);
         }
 
 
@@ -84,13 +90,22 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Book book = mBookList.get(position);
+        Log.d("tset", book.getName());
+
         holder.bookImage.setImageResource(book.getImageId());
+
         holder.bookName.setText(book.getName());
-        holder.bookAuthor.setText(book.getAuthor());
+        if (this.a != 3) {
+            holder.bookAuthor.setText(book.getAuthor());
+        }
+
         if (this.a == 0) {
             holder.bookPrice.setText("CAD$" + book.getPrice().toString());
             holder.bookType.setText("TYPE:" + book.getType().toString());
         }
+
+
+
 
     }
 

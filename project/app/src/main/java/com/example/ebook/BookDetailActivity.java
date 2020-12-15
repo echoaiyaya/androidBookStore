@@ -110,18 +110,21 @@ public class BookDetailActivity extends AppCompatActivity {
                 User user;
                 user = (User) getApplication();
                 if(user.checkLogin()) {
-                    Map<String, Object> bookCart = new HashMap<>();
+
                     Map<String, Object> bookSave = new HashMap<>();
                     bookSave.put("bookId", bookId);
+                    bookSave.put("name", name);
+                    bookSave.put("price", price);
+                    bookSave.put("imageId", image);
                     bookSave.put("bookQty", quanlity);
-                    bookCart.put(bookId, bookSave);
-                    db.collection("carts").document(user.getPhone()).set(bookCart, SetOptions.merge());
+                    bookSave.put("userId", user.getPhone());
+                    db.collection("carts").document(bookId + user.getPhone()).set(bookSave, SetOptions.merge());
                 } else {
                     Toast.makeText(BookDetailActivity.this, "Please Login first!", Toast.LENGTH_LONG).show();
                 }
 
-                Intent bookShopPage = new Intent(BookDetailActivity.this, Cart.class);
-                startActivity(bookShopPage);
+//                Intent bookShopPage = new Intent(BookDetailActivity.this, Cart.class);
+//                startActivity(bookShopPage);
 
             }
         });

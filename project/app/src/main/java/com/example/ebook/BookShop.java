@@ -27,6 +27,7 @@ public class BookShop extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     ImageView userBtn;
     ImageView bookShelfBtn;
+    ImageView commBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,7 @@ public class BookShop extends AppCompatActivity {
         //if user doesn't log in, then go to log in page, else go to user page.
         userBtn = findViewById(R.id.accountBtn);
         bookShelfBtn = findViewById(R.id.bookShelfBtn);
+        commBtn = findViewById(R.id.commBtn);
         userBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +62,14 @@ public class BookShop extends AppCompatActivity {
             public void onClick(View v) {
                 Intent bookShelf = new Intent(BookShop.this, MainActivity.class);
                 startActivity(bookShelf);
+            }
+        });
+
+        commBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent communityPage = new Intent(BookShop.this, CompanyActivity.class);
+                startActivity(communityPage);
             }
         });
     }

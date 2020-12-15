@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView userBtn;
     ImageView bookShopBtn;
     ImageView commBtn;
+    ImageView cartBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         bookShopBtn = findViewById(R.id.bookShopBtn);
         userBtn = findViewById(R.id.accountBtn);
         commBtn = findViewById(R.id.commBtn);
+        cartBtn = findViewById(R.id.cartBtn);
         userBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +82,15 @@ public class MainActivity extends AppCompatActivity {
         commBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent communityPage = new Intent(MainActivity.this, Community.class);
+                Intent communityPage = new Intent(MainActivity.this, CompanyActivity.class);
+                startActivity(communityPage);
+            }
+        });
+
+        cartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent communityPage = new Intent(MainActivity.this, Cart.class);
                 startActivity(communityPage);
             }
         });
